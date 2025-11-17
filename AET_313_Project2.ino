@@ -2,6 +2,10 @@
 #include <Servo.h>
 
 Servo myservo_1;  // create Servo object to control a servo
+Servo myservo_2;
+Servo myservo_3;
+Servo myservo_4;
+Servo myservo_5;
 // twelve Servo objects can be created on most boards
 
 int pos = 0;    // variable to store the servo position
@@ -23,19 +27,21 @@ void setup() {
 
 void loop() {
  
-buttonState = digitalRead(buttonPin_1);
-  if (buttonState == HIGH && pressedOnce == false) {
+buttonState_1 = digitalRead(buttonPin_1);
+
+  if (buttonState_1 == HIGH && pressedOnce == false) {
     pressedOnce = true;
-   sweep();
+   sweep(1);
    Serial.println("button pressed");
   } else if(buttonState == LOW){
    pressedOnce = false;
   }
  
 }
-void sweep(){
+void sweep(int sceneNum){
 
- for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+ if (sceneNum == 1) {
+   for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
     myservo_1.write(pos);              // tell servo to go to position in variable 'pos'
     delay(15);                       // waits 15 ms for the servo to reach the position
@@ -44,4 +50,17 @@ void sweep(){
     myservo_1.write(pos);              // tell servo to go to position in variable 'pos'
     delay(15);                       // waits 15 ms for the servo to reach the position
   }
+ }
+else if (sceneNum == 2){
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo_2.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    myservo_2.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15 ms for the servo to reach the position
+  }
+}
+  
 }

@@ -54,8 +54,8 @@ buttonState_2 = digitalRead(buttonPin_2);
 buttonState_3 = digitalRead(buttonPin_3);
 buttonState_4 = digitalRead(buttonPin_4);
 buttonState_5 = digitalRead(buttonPin_5);
-if(buttonState_4 != LOW){
-Serial.println("button state 4 = " + buttonState_4);
+if(buttonState_5 != LOW){
+Serial.println("button state 5 = " + buttonState_5);
 }
 if(buttonState_1 != LOW){
 Serial.println("button state 1 = " + buttonState_1);
@@ -137,26 +137,18 @@ else if (sceneNum == 3){
   }
 }
 else if (sceneNum == 4){
-  for (pos4 = 0; pos4 <= 180; pos4 += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo_4.write(pos4);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15 ms for the servo to reach the position
-  }
-  for (pos4 = 180; pos4 >= 0; pos4 -= 1) { // goes from 180 degrees to 0 degrees
-    myservo_4.write(pos4);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15 ms for the servo to reach the position
-  }
+  myservo_4.write(120);
+  delay(2000);
+  myservo_4.write(90);
 }
 else if (sceneNum == 5){
-  for (pos5 = 0; pos5 <= 180; pos5 += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo_5.write(pos5);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15 ms for the servo to reach the position
-  }
-  for (pos5 = 180; pos5 >= 0; pos5 -= 1) { // goes from 180 degrees to 0 degrees
-    myservo_5.write(pos5);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15 ms for the servo to reach the position
-  }
+  myservo_5.write(95);
+  delay(1000);
+  myservo_5.write(90);
+  delay(2000);
+  myservo_5.write(85);
+  delay(1000);
+  myservo_5.write(90);
 }
 }
 

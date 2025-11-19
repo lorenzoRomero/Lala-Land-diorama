@@ -142,13 +142,9 @@ else if (sceneNum == 4){
   myservo_4.write(90);
 }
 else if (sceneNum == 5){
-  myservo_5.write(95);
-  delay(1000);
-  myservo_5.write(90);
-  delay(2000);
   myservo_5.write(85);
-  delay(1000);
-  myservo_5.write(90);
+ delay(1800);
+ myservo_5.write(90);
 }
 }
 
